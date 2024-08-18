@@ -59,8 +59,8 @@ def calculate_mean_rasters_large(raster_files: list, output_file: str, block_siz
                         stack.append(raster_data)
                 # Convert the stack list to a 3D numpy array
                 stack_values = np.stack(stack, axis=0)
-                # Calculate the median along the first dimension
-                median_raster = np.median(stack_values, axis=0)
+                # Calculate the mean along the first dimension
+                median_raster = np.mean(stack_values, axis=0)
                 # Write the median values to the output raster
                 dst.write(median_raster, 1, window=win)
         process_end_time = time.time()
